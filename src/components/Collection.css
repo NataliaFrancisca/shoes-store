@@ -1,0 +1,36 @@
+.container-collection{
+    min-height: 90vh;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-component{
+    font-size: 1.5rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    margin: 2rem 0;
+    padding-left: 1rem;
+    letter-spacing: 2px;
+}
+
+.title-component:after {
+    content: '';
+    display: block;
+    width: 80px;
+    margin-top: 5px;
+    height: 3px;
+    background: rgba(226, 142, 45, 0.5);
+}
+
+.container-collection-products{
+    margin: 1rem 0;
+    width: 90%;
+
+    align-self: center;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    grid-gap: .9rem;
+    justify-items: center;
+}

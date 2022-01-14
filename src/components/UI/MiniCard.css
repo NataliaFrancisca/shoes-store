@@ -1,0 +1,113 @@
+.container-compra{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: .5rem;
+
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    border-bottom: 0.1px white solid;
+}
+
+.container-compra:last-child{
+    margin-bottom: 0px;
+    border-bottom: none;
+}
+
+.container-compra-image-product{
+    height: fit-content;
+    width: 35%;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px orange;
+}
+
+.container-compra img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 2px;
+    display: block;
+}
+
+.container-compra-details{
+    display: flex;
+    width: 50%;
+    height: fit-content;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.container-compra-details .name-product{
+    font-size: 1rem;
+    word-break: break-word;
+    line-height: 25px;
+    font-family: 'Merriweather Sans', sans-serif;
+    letter-spacing: 1px;
+}
+
+.container-compra-details label{
+    color: rgba(255,255,255, .6);
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: .4rem;
+}
+
+.container-compra-details label span{
+    color: white;
+    font-weight: 400;
+}
+
+.container-compra-details .value-product{
+    margin: 1.5rem 0;
+}
+
+.container-compra-details .value-product span{
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.btn-remove-shop{
+    height: fit-content;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-remove-shop span{
+    color: white;
+}
+
+@media (max-width: 600px){
+
+    .container-compra{
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .container-compra-image-product{
+        width: 60%;
+        height: 50%;
+    }
+
+    .container-compra img{
+        width: 100%;
+    }
+
+    .container-compra-details{
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: 0px;
+    }
+
+    .btn-remove-shop{
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+
+    .container-compra-details .value-product{
+        margin: .5rem 0;
+    }
+}

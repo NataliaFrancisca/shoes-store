@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Shizuru&display=swap');
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+main{
+    display: flex;
+}
+
+.component-home{
+    min-height: 90vh;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+
+    color: whitesmoke;
+    padding: 0 1rem;
+}
+
+/* PRIMEIRA TELA DA HOME */
+.first-column{
+    width: 40%;
+    min-height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-right: .5rem;
+}
+
+.first-column h1{
+    color: rgba(255,255,255,.9);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5em;
+    padding-left: 1rem;
+
+}
+
+.second-column{
+    min-height: 90vh;
+    width: 60%;
+    display: flex;
+}
+
+.second-column .second-column-first-element{
+    height: 90vh;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.second-column .second-column-first-element img{
+    height: 70%;
+    border: double rgba(190,187,238,1) 5px;
+    cursor: pointer;
+}
+
+.second-column .second-column-second-element{
+    height: 90vh;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-column .second-column-second-element img{
+    height: 80%;
+    padding: .2rem;
+    border: dashed gold 2px;
+    cursor: pointer;
+}
+
+/* SEGUNDA TELA */
+
+/* .component-news-products{
+    min-height: 100vh;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+}
+
+.component-news-products h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    min-height: 10vh;
+}
+
+.component-news-products h1:after{
+    content: '';
+    display: block;
+    width: 80px;
+    margin-top: 5px;
+    height: 3px;
+    background: rgba(226, 142, 45, .8);
+}
+
+.component-cards{
+    width: 100%;
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.component-cards .card-product{
+    height: 80vh;
+    width: 25%;
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 4px;
+    border: solid black 5px;
+}
+
+.card-product-details{
+    width: 80%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 2rem;
+
+    background-color: rgba(20,20,20,.3);
+    border-radius: 4px;
+
+    padding: 1rem;
+}
+
+.card-product-details h2{
+    font-size: 2.4em;
+    color: rgba(255,255,255,.9);
+}
+
+.card-product-details button{
+    height: 20%;
+    background-color: rgba(20,20,20,1);
+    color: white;
+    cursor: pointer;
+} */
+
+/* .card-product:nth-child(1){
+   background-image: url(images/572038C_J_08X1.jpg);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.card-product:nth-child(2){
+   background-image: url(images/561675C_K_107X1.jpg);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+} */

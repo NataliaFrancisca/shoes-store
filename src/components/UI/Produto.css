@@ -1,0 +1,260 @@
+img{
+    max-width: 100%;
+    max-height: 100%;
+
+    display: block;
+    border-radius: 7px;
+    object-fit: cover;
+    object-position: center;
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:disabled{
+    color: grey
+}
+
+.container-product{
+    width: 85%;
+    height: auto;
+    min-height: 90vh;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container-carrousel{
+    width: 40%;
+    height: 85%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.container-image-principal{
+    width: 100%;
+    height: 60vh;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.container-image-principal img{
+    width: 100%;
+    height: 100%;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.container-image-principal:hover img{
+    -moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.container-mini-images{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-image{
+    width: 24%;
+    height: fit-content;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: border ease-in 0.3s;
+    cursor: pointer;
+}
+
+.card-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.card-image.selected > img{
+    filter: opacity(20%);
+}
+
+.card-image.selected {
+    border: solid orange 2px;
+}
+
+/* SEGUNDA COLUNA - DETALHES DO PRODUTO */
+.container-details{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: orange;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.product-name{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+.product-details{
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.product-price{
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Merriweather Sans', sans-serif;
+    margin-top: 5vh;
+}
+
+.buttons-details{
+    margin-top: 3vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-btn-quantity{
+    width: 40%;
+    background-color: rgba(255,255,255, .6);
+    border-radius: 5px;
+    height: 3rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+
+    transition: all ease-in-out .2s;
+}
+
+.container-btn-quantity button{
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: orange;
+
+    transition: color ease-in-out .2s;
+}
+
+.container-btn-quantity button:hover{
+    color: rgb(231, 229, 225);
+}
+
+.container-btn-quantity button:disabled{
+    color: grey;
+}
+
+.container-btn-quantity span{
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: black;
+}
+
+.container-btn-add{
+    width: 50%;
+    background-color: orange;
+    margin-left: 1rem;
+    border-radius: 5px;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-weight: 800;
+    font-size: 1rem;
+    transition: all ease-in-out .2s;
+    word-wrap: break-word;
+}
+
+.container-btn-add:before{
+    content: "\e854";
+    font-family: 'Material Icons';
+    top: 50%;
+    margin-right: .5rem;
+}
+
+.container-btn-add:hover,
+.container-btn-quantity:hover{
+    box-shadow: 1px 1px 8px rgba(255, 255, 255, .8);
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 850px){
+    .container-product{
+        width: 90%;
+    }
+
+    .container-details{
+        margin-top: 1rem;
+    }
+
+    .product-name{
+        font-size: 2.2rem;
+    }
+
+    .product-details{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width: 800px){
+
+    .container-details{
+        width: 50%;
+    }
+
+    .product-name{
+        font-size: 1.8rem;
+    }
+}
+
+@media(max-width: 750px){
+    .container-carrousel{
+        width: 45%;
+    }
+}
+
+@media(max-width: 600px){
+    .container-product{
+        margin: 2rem 0;
+        flex-direction: column;
+    }
+
+    .container-carrousel{
+        width: 90%;
+        height: 50%;
+        margin: 1rem 0;
+    }
+
+    .container-image-principal{
+        height: 50%;
+    }
+
+    .container-details{
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+}

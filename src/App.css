@@ -1,38 +1,334 @@
-.App {
-  text-align: center;
+.App{
+    height: auto;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-routes{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    min-height: 90vh;
+
+    align-self: center;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* HEADER  */
+
+header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: whitesmoke;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.menu-hamburger{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-items{
+    display: flex;
+    width: 80%;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-items li{
+    list-style: none;
+    font-size: 1.4rem;
+    margin: 2rem 0;
+    font-size: 1.4rem;
+    list-style: none;
+}
+
+.menu-items li a{
+    text-decoration: none;
+    color: rgba(250,250,250,.7);
+}
+
+.menu-items li:hover{
+    color: white;
+    text-shadow: 2px 2px 2px black, 0 0 1em rgb(218, 143, 58), 0 0 0.2em rgb(235, 148, 35);
+}
+
+/* BOTÃO MENU HAMBURGUER */
+.menu {
+    background: rgba(226, 142, 45, 0.8);
+    width: 60px;
+    height: 60px;
+    margin: 1rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+  
+.hamburguer {
+    position: relative;
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    top: 29px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
+}
+  
+.hamburguer:before,
+.hamburguer:after {
+    background: #000;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+  
+.hamburguer:before {
+    top: -10px;
+}
+  
+.hamburguer:after {
+    bottom: -10px;
+}
+  
+input {
+    display: none;
+}
+
+/* rotação dos elementos do span */
+input:checked ~ label .hamburguer {
+    transform: rotate(45deg);
+}
+
+input:checked ~ label .hamburguer:before {
+    transform: rotate(90deg);
+    top: 0;
+}
+  
+input:checked ~ label .hamburguer:after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+input:checked ~ .menu-items{
+    left: 0;
+}
+
+/* CONTAINER CARRINHO DE COMPRAS */
+.container-shopping-cart{
+    width: 400px;
+    height: 100%;
+    background-color: rgb(20,20,20);
+    position: fixed;
+    right: -400px;
+    top: 0;
+
+    transition: right cubic-bezier(1,0,0,1) .8s;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.container-shopping-cart.visible{
+    right: 0px;
+}
+
+.container-shopping-cart.hidden{
+    right: -400px;
+}
+
+.btn-close-shopping-cart{
+    background-color: transparent;
+    color: rgba(250,250,250,.7);
+
+    font-family: 'Merriweather Sans', sans-serif;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-close-shopping-cart span{
+    font-size: 2rem;
+}
+
+.btn-show-shopping-cart{
+    background-color: transparent;
+    font-size: 2rem;
+    color: rgba(250,250,250,.7);
+
+    font-family: 'Merriweather Sans', sans-serif;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    justify-self: flex-end;
+
+    margin-left: 2rem;
+}
+
+.btn-show-shopping-cart span{
+    font: 1.4rem;
+}
+
+.btn-show-shopping-cart:hover,
+.btn-close-shopping-cart:hover{
+    color: white;
+    text-shadow: 2px 2px 2px black, 0 0 1em rgb(218, 143, 58), 0 0 0.2em rgb(235, 148, 35);
+}
+
+/* DETALHES DO CONTAINER CARRINHO DE COMPRAS */
+.container-shopping-cart-details{
+    width: 90%;
+    height: 15%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: all ease-in .3s;
+}
+
+.title-container-cart{
+    font-size: 1.4rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    margin: 1rem 0;
+    letter-spacing: 3px;
+}
+
+.title-container-cart:after {
+    content: '';
+    display: block;
+    width: 80px;
+    margin-top: 5px;
+    height: 3px;
+    background: rgba(226, 142, 45, 0.5);
+}
+
+/* DETALHES DO PRODUTO QUE FOI ADICIONADO NO CARRINHO */
+.container-compras{
+    display: block;
+    width: 90%;
+    max-height: 45%;
+    overflow-y: scroll;
+    height: auto;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.subtotal-value{
+    width: 90%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: rgba(255,255,255, .6);
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.subtotal-value span{
+    color: white;
+    letter-spacing: 2px;
+}
+
+.btn-finish{
+    width: 50%;
+    height: 3rem;
+
+    background-color: orange;
+
+    position: absolute;
+    bottom: 5%;
+
+    border-radius: 3px;
+    font-size: 1.8rem;
+
+    cursor: pointer;
+}
+
+
+
+/* ATIVANDO O BOTÃO HAMBURGUER QUANDO O TAMANHO DA TELA ATINGIR 600PX */
+@media (max-width: 600px){
+    
+    header{
+        height: 20%;
+    }
+    .container-compras{
+        max-height: 45%;
+    }
+
+    .btn-show-shopping-cart{
+        margin-left: 0rem;
+        margin-right: 2rem;
+    }
+
+    .menu-hamburger{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: flex-start;
+        overflow: auto;
+        z-index: 1;
+    }
+
+    .menu-items{
+        width: 60%;
+        height: 100%;
+        background-color: rgb(20,20,20);
+        position: fixed;
+        left: -60%;
+        top: 0;
+    
+        transition: left cubic-bezier(1,0,0,1) .8s;
+        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    
+        padding-top: 15vh;
+    
+        z-index: -1;
+    }
+
+    .menu{
+        display: flex;
+        height: 60px;
+        width: 60px;
+    }
+
+    .container-shopping-cart{
+        width: 70%;
+        right: -70%;
+    }
+
+    .container-shopping-cart.hidden{
+        right: -70%;
+    }
+
+    .title-container-cart{
+        font-size: 1.2rem;
+    }
 }
