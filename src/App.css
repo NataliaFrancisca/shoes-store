@@ -228,7 +228,7 @@ input:checked ~ .menu-items{
 .container-compras{
     display: block;
     width: 90%;
-    max-height: 45%;
+    max-height: 50%;
     overflow-y: scroll;
     height: auto;
     flex-direction: column;
@@ -265,7 +265,6 @@ input:checked ~ .menu-items{
 
     cursor: pointer;
 }
-
 
 
 /* ATIVANDO O BOTÃO HAMBURGUER QUANDO O TAMANHO DA TELA ATINGIR 600PX */

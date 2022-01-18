@@ -43,25 +43,25 @@ const Home = () => {
 
             {/* SEGUNDA TELA */}
 
-            {/* <main className="component-news-products">
+            <main className="component-news-products">
                 <h1> Trending Now </h1>
                 <section className="component-cards">
 
-                    <div className="card-product">
-                        <div className="card-product-details">
+                    <div className="trend-card-product">
+                        <div className="trend-card-product-details">
                             <h2>Chuck 70</h2>
                             <button>BUY NOW</button>
                         </div>
                     </div>
 
-                    <div className="card-product">
-                        <div className="card-product-details">
+                    <div className="trend-card-product">
+                        <div className="trend-card-product-details">
                             <h2>Authentic Glam Chuck 70</h2>
                             <button>BUY NOW</button>
                         </div>
                     </div>
                 </section>
-            </main> */}
+            </main>
 
         </div>
     )

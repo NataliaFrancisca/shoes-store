@@ -13,7 +13,6 @@ import {dataProducts} from "./data/db";
 
 function App() {
 
-
   const [containerShoppingCart, setContainerShoppingCart] = useState("hidden");
   const [dataShoppingCart, setDataShoppingCart] = useState([]);
   const [precoCompra, setPrecoCompra] = useState(0);
@@ -22,13 +21,13 @@ function App() {
     setContainerShoppingCart(action);
   }
 
-  // DELETAR O PRODUTO NO CARRINHO DE COMPRAS
+  // DELETAR O PRODUTO DO CARRINHO DE COMPRAS
   const deleteProduct = (product) => {
       let newDataShoppingCart = dataShoppingCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
       setDataShoppingCart(newDataShoppingCart);
   }
 
-  // RECEBE OS DADOS DO PRODUTO QUE FOI ADICIONADO NO CARRINHO DE COMPRAS NO COMPONENTE PRODUTO
+  // RECEBE OS DADOS DO PRODUTO PARA ADICIONAR NO CARRINHO DE COMPRAS
   function receiveProductsToShopCart(data){
     let checkDuplicate = dataShoppingCart.some(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto));
     
@@ -44,7 +43,6 @@ function App() {
   // Função de atualizar o preço total da compra
   useEffect(() => {
     
-    console.log("omgggggg")
     if(dataShoppingCart.length !== 0){
       const reducer = (previousValue, currentValue) => previousValue + currentValue;
       const t = dataShoppingCart.map(element => element.product.preco * element.quantity).reduce(reducer);
@@ -71,10 +69,9 @@ function App() {
                   </div>
                 </label>
                 
-
                 <ul className="menu-items">
                   <li>
-                    <NavLink to="/" exact>Nome Empresa</NavLink>
+                    <NavLink to="/" exact>Converse</NavLink>
                   </li>
 
                   <li>
@@ -86,7 +83,6 @@ function App() {
                   </li>
                 </ul>
                 
-
                 <button 
                   onClick={() => changeVisibilityCart('visible')}
                   className='btn-show-shopping-cart'>
@@ -128,11 +124,9 @@ function App() {
             ))}
           </div>
 
-          <label className="subtotal-value">Subtotal: <span>R${precoCompra}</span></label>
+          <label className="subtotal-value">Subtotal: <span>R${parseFloat(precoCompra)}</span></label>
           <button className="btn-finish">Finish</button>
         </div>
-
-      
     </div>
   );
 }
