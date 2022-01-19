@@ -171,11 +171,12 @@ button:disabled{
 }
 
 .container-btn-add{
-    width: 50%;
+    width: 60%;
     background-color: orange;
     margin-left: 1rem;
     border-radius: 5px;
     height: 3.8rem;
+    font-size: 1.2rem;
 
     display: flex;
     align-items: center;
@@ -186,7 +187,6 @@ button:disabled{
     transition: all ease-in-out .2s;
     word-break: break-word;
     padding: .5rem;
-    font-size: clamp(14px, 2vw, 1rem);
 }
 
 .container-btn-add:before{
@@ -257,5 +257,10 @@ button:disabled{
     .container-details{
         width: 90%;
         margin-bottom: 1rem;
+    }
+
+    .container-btn-add,
+    .container-btn-quantity{
+        height: 5rem;
     }
 }
