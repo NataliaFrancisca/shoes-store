@@ -48,7 +48,6 @@ const Produto = (props) => {
         props.onShowCartShop("visible")
     }
 
-
     return(
         <main className="container-product">
             <section className="container-carrousel">
@@ -84,7 +83,7 @@ const Produto = (props) => {
                     <button 
                         className="container-btn-add"
                         onClick={addProductShopCart}
-                    > Adicionar ao Card</button>
+                    > Adicionar ao Carrinho</button>
                 </div>
             </section>
         </main>

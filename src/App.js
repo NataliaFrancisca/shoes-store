@@ -40,13 +40,13 @@ function App() {
     }
   }
   
-  // Função de atualizar o preço total da compra
+  // atualizar o preço total da compra
   useEffect(() => {
     
     if(dataShoppingCart.length !== 0){
       const reducer = (previousValue, currentValue) => previousValue + currentValue;
-      const t = dataShoppingCart.map(element => element.product.preco * element.quantity).reduce(reducer);
-      setPrecoCompra(t);
+      const precoTotal = dataShoppingCart.map(element => element.product.preco * element.quantity).reduce(reducer);
+      setPrecoCompra(precoTotal);
     }else{
       setPrecoCompra(0);
     }
