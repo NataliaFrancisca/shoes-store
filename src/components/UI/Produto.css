@@ -183,9 +183,10 @@ button:disabled{
 
     color: white;
     font-weight: 500;
-    font-size: 1rem;
     transition: all ease-in-out .2s;
-    word-wrap: break-word;
+    word-break: break-word;
+    padding: .5rem;
+    font-size: clamp(14px, 2vw, 1rem);
 }
 
 .container-btn-add:before{
@@ -204,7 +205,7 @@ button:disabled{
 
 @media(max-width: 850px){
     .container-product{
-        width: 90%;
+        width: 100%;
     }
 
     .container-details{
