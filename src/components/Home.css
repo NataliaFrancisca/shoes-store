@@ -8,6 +8,7 @@ img{
 
 main{
     display: flex;
+    padding: 0 1rem;
 }
 
 .component-home{
@@ -26,20 +27,20 @@ main{
 
 /* PRIMEIRA TELA DA HOME */
 .first-column{
-    width: 40%;
+    width: 45%;
     min-height: 90vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding-right: .5rem;
+    padding: .5rem;
 }
 
 .first-column h1{
     color: rgba(255,255,255,.9);
     font-family: 'Bebas Neue', cursive;
-    font-size: 5em;
+    font-size: 5.5em;
     padding-left: 1rem;
 
 }
@@ -48,16 +49,19 @@ main{
     min-height: 90vh;
     width: 60%;
     display: flex;
+    padding: 0 .5rem;
+    justify-content: space-evenly;
 }
 
 .second-column .second-column-first-element{
-    height: 90vh;
-    width: 50%;
+    height: 70vh;
+    width: 40%;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
     padding-bottom: 2rem;
+    align-self: flex-end;
 }
 
 .second-column .second-column-first-element img{
@@ -68,7 +72,7 @@ main{
 
 .second-column .second-column-second-element{
     height: 90vh;
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,3 +85,77 @@ main{
     cursor: pointer;
 }
 
+@media(max-width: 1000px){
+    .first-column h1{
+        font-size: 4.5em;
+    }
+}
+
+@media(max-width: 900px){
+    .first-column h1{
+        font-size: 4em;
+    }
+}
+
+@media(max-width: 700px){
+    .first-column h1{
+        font-size: 3.5em;
+    }
+}
+
+@media(max-width: 600px){
+    main{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .first-column{
+        width: 90%;
+    }
+
+    .first-column h1{
+        font-size: 5em;
+        text-align: center;
+        padding-left: 0rem;
+    }
+
+    .second-column{
+        width: 90%;
+    }
+
+}
+
+@media(max-width: 500px){
+    .first-column{
+        height: 80vh;
+    }
+
+    .first-column h1{
+        font-size: 4.5em;
+    }
+
+    .second-column{
+        flex-direction: column;
+        height: 150vh;
+    }
+
+    .second-column .second-column-first-element{
+        flex-direction: row;
+        padding-bottom: 0rem;
+    }
+
+    .second-column .second-column-first-element,
+    .second-column .second-column-second-element{
+        height: none;
+        width: 100%;
+        height: 45%;
+        align-items: inherit;
+    }
+
+    .second-column .second-column-first-element img,
+    .second-column .second-column-second-element img{
+        height: 100%;
+        width: 100%;
+    }
+}

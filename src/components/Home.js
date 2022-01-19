@@ -31,13 +31,11 @@ const Home = () => {
                         </div>
                     ))}
 
-                    <div className="second-column-second-element">
                         {secondImage.map(element => (
                             <div className="second-column-second-element" onClick={() => mostraProduto(element)}>
                             <img src={`../${element.imageExtra.url}`} alt={element.produto} />
                             </div>
                         ))}
-                    </div>
                 </section>   
             </main>
 
