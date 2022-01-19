@@ -42,7 +42,7 @@ const Home = () => {
             </main>
 
             {/* SEGUNDA TELA */}
-
+{/* 
             <main className="component-news-products">
                 <h1> Trending Now </h1>
                 <section className="component-cards">
@@ -61,7 +61,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-            </main>
+            </main> */}
 
         </div>
     )
