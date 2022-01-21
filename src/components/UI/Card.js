@@ -5,8 +5,6 @@ const Card = (props) => {
 
     const {produto, preco, images} = props.data;
 
-    console.log('renderizando no card')
-
     return(
         <div className="container-card">
             <div className="image-product">

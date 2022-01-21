@@ -21,7 +21,7 @@ export const dataProducts = [
         preco: 300, 
         textDetails: "We've updated the premium Chuck 70 with durable 12oz vintage canvas in new Earthy, optimistic colors.",
         images: [
-            {url: "images/converse-color-vintage-canvas-chuck-70-4.jpg"},
+            {url: "images/converse-color-vintage-canvas-chuck-70-1.jpg"},
             {url: "images/converse-color-vintage-canvas-chuck-70-2.jpg"},
             {url: "images/converse-color-vintage-canvas-chuck-70-3.jpg"},
             {url: "images/converse-color-vintage-canvas-chuck-70-4.jpg"},     
@@ -54,6 +54,64 @@ export const dataProducts = [
             {url: "images/Authentic-Glam-Chuck-70-2.jpg"},
             {url: "images/Authentic-Glam-Chuck-70-3.jpg"},
             {url: "images/Authentic-Glam-Chuck-70-4.jpg"},
+        ]
+    },
+
+    {
+        marca: "Converse",
+        url: "converse-chuck-70-embroidered-lips",
+        produto: "Chuck 70 Embroidered Lips",
+        preco: 455, 
+        textDetails: "Wear your heart on your Chucks. These high top Chuck 70 sneakers combine the unmistakable Chuck Taylor features you know and love with lovingly embroidered details and unexpected kiss prints at the outsole.",
+        images: [
+            {url: "images/Chuck-70-Embroidered-Lips-1.jpg"},
+            {url: "images/Chuck-70-Embroidered-Lips-2.jpg"},
+            {url: "images/Chuck-70-Embroidered-Lips-3.jpg"},
+            {url: "images/Chuck-70-Embroidered-Lips-4.jpg"},
+
+        ]
+    },
+    
+    {
+        marca: "Converse",
+        url: "converse-run-star-hike-low-shoe",
+        produto: "Run Star Hike - Low Shoe",
+        preco: 400, 
+        textDetails: "Available in a low top for the first time, the Run Star Hike's chunky platform and jagged rubber sole put an unexpected twist on your everyday Chucks.",
+        images: [
+            {url: "images/Run-Star-Hike-Low-1.jpg"},
+            {url: "images/Run-Star-Hike-Low-2.jpg"},
+            {url: "images/Run-Star-Hike-Low-3.jpg"},
+            {url: "images/Run-Star-Hike-Low-4.jpg"},
+        ]
+    },
+
+    {
+        marca: "Converse",
+        url: "converse-taylor-all-star-madion",
+        produto: "Chuck Taylor All Star Madison",
+        preco: 240, 
+        textDetails: "Amp up the comfort with cushioned and structured Chucks. With padding on the collar, heel and tongue, they've got everything you need to keep going.",
+        images: [
+            {url: "images/Chuck-Taylor-All-Star-Madison-1.jpg"},
+            {url: "images/Chuck-Taylor-All-Star-Madison-2.jpg"},
+            {url: "images/Chuck-Taylor-All-Star-Madison-3.jpg"},
+            {url: "images/Chuck-Taylor-All-Star-Madison-4.jpg"},
+
+        ]
+    },
+
+    {
+        marca: "Converse",
+        url: "converse-run-star-hike",
+        produto: "Run Star Hike",
+        preco: 650, 
+        textDetails: "A chunky platform and jagged rubber sole put an unexpected twist on your everyday Chucks.",
+        images: [
+            {url: "images/Run-Star-Hike-1.jpg"},
+            {url: "images/Run-Star-Hike-2.jpg"},
+            {url: "images/Run-Star-Hike-3.jpg"},
+            {url: "images/Run-Star-Hike-4.jpg"},
         ]
     },
 
