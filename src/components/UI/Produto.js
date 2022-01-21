@@ -4,7 +4,7 @@ import "./Produto.css"
 
 const Produto = (props) => {
 
-    const {marca, produto, preco, textDetails, images} = props.state;
+    const {marca, produto, preco, textDetails, images} = props.data;
     
     const [elementBigImage, setElementBigImage] = useState(images[0].url)    
     const [quantity, setQuantity] = useState(0);
@@ -40,7 +40,7 @@ const Produto = (props) => {
         quantity === 0 ? newQuantity = 1 : newQuantity = quantity;
 
         let detailsShopping = {
-            product: props.state,
+            product: props.data,
             quantity: newQuantity
         }
 
@@ -60,6 +60,7 @@ const Produto = (props) => {
                     {images.map((image, index) => (
                         <div 
                             className={`card-image ${index}`}
+                            key={index}
                             onClick={() => handleClick(index, image)}>
                                 <img src={`../${image.url}`} alt="product"/>
                         </div>

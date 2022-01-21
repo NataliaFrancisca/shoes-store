@@ -13,7 +13,7 @@ const MiniCard = (props) => {
     return(
         <div className="container-compra">
             <div className="container-compra-image-product">
-                    <img src={`../${images[0].url}`} alt={images[0]} />
+                <img src={`../${images[2].url}`} alt={images[2]} />
             </div>
                 
             <div className="container-compra-details">

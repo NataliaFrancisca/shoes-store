@@ -86,7 +86,7 @@ function App() {
                 <button 
                   onClick={() => changeVisibilityCart('visible')}
                   className='btn-show-shopping-cart'>
-                  <span class="material-icons-outlined"> shopping_cart </span>
+                  <span className="material-icons-outlined"> shopping_cart </span>
                 </button>
 
               </nav>
@@ -100,7 +100,13 @@ function App() {
                 
                 {/* passando pelos dados e pegando a url do dado, exibindo ele e mandando os dados */}
                   {dataProducts.map(product => (
-                    <Route path={`produto/${product.url}`} element={<Produto state={product} receiveData={receiveProductsToShopCart} onShowCartShop={changeVisibilityCart}/>} />
+                    <Route path={`produto/${product.url}`} 
+                      element={ 
+                        <Produto 
+                          data={product} 
+                          receiveData={receiveProductsToShopCart} 
+                          onShowCartShop={changeVisibilityCart}/>} 
+                        />
                   ))}
                 
               </Routes>
