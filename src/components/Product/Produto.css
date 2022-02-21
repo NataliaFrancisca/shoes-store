@@ -114,57 +114,10 @@ button:disabled{
     margin-top: 5vh;
 }
 
-.buttons-details{
-    margin-top: 5vh;
-    display: flex;
-    justify-content: space-between;
-}
-
-.container-btn-quantity{
-    width: 40%;
-    background-color: rgba(255,255,255, .9);
-    border-radius: 5px;
-    height: 3.8rem;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5rem;
-
-    transition: all ease-in-out .2s;
-}
-
-.container-btn-quantity button{
-    width: 20%;
-    height: 100%;
-    background-color: transparent;
-
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: orange;
-
-    transition: color ease-in-out .2s;
-}
-
-.container-btn-quantity button:hover{
-    color: rgb(231, 229, 225);
-}
-
-.container-btn-quantity button:disabled{
-    color: grey;
-}
-
-.container-btn-quantity span{
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: black;
-}
 
 .container-btn-add{
-    width: 60%;
-    background-color: orange;
-    margin-left: 1rem;
+    width: 100%;
+    background-color: rgb(255, 166, 0);
     border-radius: 5px;
     height: 3.8rem;
     font-size: 1.1rem;
@@ -178,17 +131,11 @@ button:disabled{
     transition: all ease-in-out .2s;
     word-break: break-word;
     padding: .5rem;
+
+    margin-top: 5vh;
 }
 
-.container-btn-add:before{
-    content: "\e854";
-    font-family: 'Material Icons';
-    top: 50%;
-    margin-right: .5rem;
-}
-
-.container-btn-add:hover,
-.container-btn-quantity:hover{
+.container-btn-add:hover{
     box-shadow: 1px 1px 8px rgba(255, 255, 255, .8);
 }
 
@@ -250,8 +197,7 @@ button:disabled{
         margin-bottom: 1rem;
     }
 
-    .container-btn-add,
-    .container-btn-quantity{
+    .container-btn-add{
         height: 5rem;
     }
 }

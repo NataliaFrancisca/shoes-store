@@ -15,55 +15,54 @@ import { Context } from './Context';
 import {dataProducts} from "./data/db";
 
 function App() {
-
-  const [containerShoppingCart, setContainerShoppingCart] = useState("hidden");
+    
+  const [visibilityShopCart, setVisibilityShopCart] = useState("hidden");
   const [productsShoppingCart, setProductsShoppingCart] = useState([]);
-  const [dataShoppingCart, setDataShoppingCart] = useState([]);
+
   const [precoCompra, setPrecoCompra] = useState(0);
 
-  const changeVisibilityCart = (action) => {
-    setContainerShoppingCart(action);
-  }
+  // const changeVisibilityCart = (action) => {
+  //   setContainerShoppingCart(action);
+  // }
 
-  // DELETAR O PRODUTO DO CARRINHO DE COMPRAS
-  const deleteProduct = (product) => {
-      let newDataShoppingCart = dataShoppingCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
-      setDataShoppingCart(newDataShoppingCart);
-  }
+  // // DELETAR O PRODUTO DO CARRINHO DE COMPRAS
+  // const deleteProduct = (product) => {
+  //     let newDataShoppingCart = dataShoppingCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
+  //     setDataShoppingCart(newDataShoppingCart);
+  // }
 
-  // RECEBE OS DADOS DO PRODUTO PARA ADICIONAR NO CARRINHO DE COMPRAS
-  function receiveProductsToShopCart(data){
-    let checkDuplicate = dataShoppingCart.some(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto));
+  // // RECEBE OS DADOS DO PRODUTO PARA ADICIONAR NO CARRINHO DE COMPRAS
+  // function receiveProductsToShopCart(data){
+  //   let checkDuplicate = productsShoppingCart.some(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto));
     
-    if(checkDuplicate === true){
-        dataShoppingCart
-          .filter(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto))
-          .map(item => item.quantity = data.quantity)
-    }else{
-        setDataShoppingCart(previous => [...previous, data]); 
-    }
-  }
+  //   if(checkDuplicate === true){
+  //       productsShoppingCart
+  //         .filter(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto))
+  //         .map(item => item.quantity = data.quantity)
+  //   }else{
+  //       setProductsShoppingCart(previous => [...previous, data]); 
+  //   }
+  // }
   
-  // atualizar o preço total da compra
+  // // atualizar o preço total da compra
   useEffect(() => {
-    
-    if(dataShoppingCart.length !== 0){
+
+    if(productsShoppingCart.length !== 0){
       const reducer = (previousValue, currentValue) => previousValue + currentValue;
-      const precoTotal = dataShoppingCart.map(element => element.product.preco * element.quantity).reduce(reducer);
+      const precoTotal = productsShoppingCart.map(element => element.product.preco * element.quantity).reduce(reducer);
       setPrecoCompra(precoTotal);
     }else{
       setPrecoCompra(0);
     }
 
-  }, [dataShoppingCart]);
+  }, [productsShoppingCart]);
 
 
   console.log('renderizando na pasta app.js')
-  console.log(containerShoppingCart)
 
   return (
     <div className="App">
-      <Context.Provider value={{productsShoppingCart, setProductsShoppingCart}}>
+      <Context.Provider value={{productsShoppingCart, setProductsShoppingCart, visibilityShopCart, setVisibilityShopCart}}>
           <Router>
             <header>
               <nav className="menu-hamburger">
@@ -90,7 +89,7 @@ function App() {
                 </ul>
                 
                 <button 
-                  onClick={() => changeVisibilityCart('visible')}
+                  onClick={() => setVisibilityShopCart('visible')}
                   className='btn-show-shopping-cart'>
                   <span className="material-icons-outlined"> shopping_cart </span>
                 </button>
@@ -111,8 +110,9 @@ function App() {
                           element={ 
                             <Produto 
                               data={product} 
-                              receiveData={receiveProductsToShopCart} 
-                              onShowCartShop={changeVisibilityCart}/>} 
+                              // receiveData={receiveProductsToShopCart} 
+                              // onShowCartShop={changeVisibilityCart}
+                            />}
                             />
                       ))}
                     
@@ -122,8 +122,9 @@ function App() {
             </Router>
 
             <ShopCart 
-              onShowComponent={containerShoppingCart} 
-              onHideComponent={() => setContainerShoppingCart('hidden')}
+              onShowComponent={visibilityShopCart} 
+              onHideComponent={() => setVisibilityShopCart('hidden')}
+              priceData={precoCompra}
             />
 
         </Context.Provider>

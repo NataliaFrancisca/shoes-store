@@ -1,26 +1,17 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useContext} from "react";
+
+import { Context } from '../../Context';
 
 import "./Produto.css"
 
 const Produto = (props) => {
 
+    const { productsShoppingCart, setProductsShoppingCart, setVisibilityShopCart } = useContext(Context);
+
     const {marca, produto, preco, textDetails, images} = props.data;
-    
     const [elementBigImage, setElementBigImage] = useState(images[0].url)    
-    const [quantity, setQuantity] = useState(0);
 
     const listMiniCardRef = useRef();
-    const buttonLessRef = useRef();
-
-    // FUNÇÕES
-    const handlePlus = () => {
-        buttonLessRef.current.disabled = false;
-        setQuantity((prevState) => prevState + 1);
-    }
-
-    const handleLess = () => {
-        return quantity === 0 ? buttonLessRef.current.disabled = true : setQuantity((prevState) => prevState - 1);
-    }
 
     const handleClick = (index, image) => {
         let list_miniCards = [...listMiniCardRef.current.children];
@@ -34,18 +25,23 @@ const Produto = (props) => {
 
     const addProductShopCart = () => {
 
-        // caso o usuário clique no botão de adicionar, vai adicionar 1 produto
-        // mesmo sem ele definir a quantidade
-        let newQuantity = 0;
-        quantity === 0 ? newQuantity = 1 : newQuantity = quantity;
+        let detailsShopping = { product: props.data, quantity: 1}
 
-        let detailsShopping = {
-            product: props.data,
-            quantity: newQuantity
+        addProductToDataList(detailsShopping)
+        setVisibilityShopCart('visible')
+    }
+
+    // FAZENDO VERIFICAÇÃO PARA SABER SE O PRODUTO JÁ EXISTE NO CARRINHO DE COMPRAS
+    const addProductToDataList = data => {
+        let checkDuplicate = productsShoppingCart.some(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto));
+        
+        if(checkDuplicate){
+            productsShoppingCart
+            .filter(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto))
+            .map(item => item.quantity++)
+        }else{
+            setProductsShoppingCart(previous => [...previous, data]); 
         }
-
-        props.receiveData(detailsShopping);
-        props.onShowCartShop("visible")
     }
 
     return(
@@ -74,18 +70,10 @@ const Produto = (props) => {
                 <p className="product-details">{textDetails}</p>
                 <span className="product-price">R${preco}</span>
 
-                <div className="buttons-details">
-                    <div className="container-btn-quantity">
-                        <button id="btn-less" onClick={handleLess} ref={buttonLessRef}>-</button>
-                        <span id="span-quantity">{quantity}</span>
-                        <button id="btn-plus" onClick={handlePlus}>+</button>
-                    </div>
-            
-                    <button 
-                        className="container-btn-add"
-                        onClick={addProductShopCart}
-                    > Adicionar ao Carrinho</button>
-                </div>
+                <button className="container-btn-add"
+                    onClick={addProductShopCart}>
+                    Adicionar ao Carrinho
+                </button>
             </section>
         </main>
     )

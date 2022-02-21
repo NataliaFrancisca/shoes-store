@@ -5,11 +5,6 @@ const MiniCard = (props) => {
 
     const {produto, images, preco} = props.data.product;
 
-    const deleteProduct = () => {
-        console.log("estoy pensando em me deletar")
-        props.deleteProduct(props.data.product);
-    }
-
     return(
         <div className="container-compra">
             <div className="container-compra-image-product">
@@ -23,7 +18,7 @@ const MiniCard = (props) => {
                 <label>Quantidade: <span>{props.data.quantity}</span> </label>
             </div>
 
-            <button className="btn-remove-shop" onClick={deleteProduct}>
+            <button className="btn-remove-shop" onClick={() => props.onDeleteProduct(props.data.product)}>
                 <span className="material-icons">delete</span>
             </button>
         </div>
