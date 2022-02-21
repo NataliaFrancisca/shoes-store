@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate} from 'react-router-dom';
 
-import "./Collection.css"
-import Card from "./UI/Card"
+import "./styles/Collection.css"
+import Card from "../components/Card/Card";
 
 import {dataProducts} from "../data/db"
 
