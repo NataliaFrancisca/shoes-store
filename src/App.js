@@ -1,19 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, NavLink, Routes, Route } from 'react-router-dom'
 
-import Collection from "./components/Collection"
-import Contact from "./components/Contact"
-import Home from './components/Home';
-import Produto from './components/UI/Produto';
+import Collection from './pages/Collection';
+import Contact from './pages/Contact';
+import Home from './pages/Home'
+import Produto from './components/Product/Produto';
 import MiniCard from './components/UI/MiniCard';
+
+import ShopCart from './components/UI/ShopCart'
 
 import './App.css';
 
+import { Context } from './Context';
 import {dataProducts} from "./data/db";
 
 function App() {
 
   const [containerShoppingCart, setContainerShoppingCart] = useState("hidden");
+  const [productsShoppingCart, setProductsShoppingCart] = useState([]);
   const [dataShoppingCart, setDataShoppingCart] = useState([]);
   const [precoCompra, setPrecoCompra] = useState(0);
 
@@ -55,9 +59,11 @@ function App() {
 
 
   console.log('renderizando na pasta app.js')
+  console.log(containerShoppingCart)
 
   return (
     <div className="App">
+      <Context.Provider value={{productsShoppingCart, setProductsShoppingCart}}>
           <Router>
             <header>
               <nav className="menu-hamburger">
@@ -92,47 +98,35 @@ function App() {
               </nav>
             </header>
 
-            <div className="container-routes">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/collection" element={<Collection />} />
-                <Route path="/contact" element={<Contact />} />
+
+              <div className="container-routes">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/collection" element={<Collection />} />
+                    <Route path="/contact" element={<Contact />} />
+                    
+                    {/* passando pelos dados e pegando a url do dado */}
+                      {dataProducts.map(product => (
+                        <Route path={`produto/${product.url}`} 
+                          element={ 
+                            <Produto 
+                              data={product} 
+                              receiveData={receiveProductsToShopCart} 
+                              onShowCartShop={changeVisibilityCart}/>} 
+                            />
+                      ))}
+                    
+                  </Routes>
                 
-                {/* passando pelos dados e pegando a url do dado, exibindo ele e mandando os dados */}
-                  {dataProducts.map(product => (
-                    <Route path={`produto/${product.url}`} 
-                      element={ 
-                        <Produto 
-                          data={product} 
-                          receiveData={receiveProductsToShopCart} 
-                          onShowCartShop={changeVisibilityCart}/>} 
-                        />
-                  ))}
-                
-              </Routes>
-            </div>
-          </Router>
+              </div>
+            </Router>
 
-        <div className={`container-shopping-cart ${containerShoppingCart}`}>
-          <div className="container-shopping-cart-details">
-              <h2 className="title-container-cart">suas compras</h2>
+            <ShopCart 
+              onShowComponent={containerShoppingCart} 
+              onHideComponent={() => setContainerShoppingCart('hidden')}
+            />
 
-              <button className="btn-close-shopping-cart" onClick={() => changeVisibilityCart("hidden")}>
-                <span className="material-icons">close</span>
-              </button>
-          </div>
-
-          <div className="container-compras">
-            {dataShoppingCart.map(item => (
-                <MiniCard 
-                  data={item}
-                  deleteProduct={deleteProduct}/>
-            ))}
-          </div>
-
-          <label className="subtotal-value">Subtotal: <span>R${parseFloat(precoCompra)}</span></label>
-          <button className="btn-finish">Finish</button>
-        </div>
+        </Context.Provider>
     </div>
   );
 }
