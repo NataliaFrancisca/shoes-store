@@ -5,7 +5,6 @@ import Collection from './pages/Collection';
 import Contact from './pages/Contact';
 import Home from './pages/Home'
 import Produto from './components/Product/Produto';
-import MiniCard from './components/UI/MiniCard';
 
 import ShopCart from './components/UI/ShopCart'
 
@@ -21,32 +20,8 @@ function App() {
 
   const [precoCompra, setPrecoCompra] = useState(0);
 
-  // const changeVisibilityCart = (action) => {
-  //   setContainerShoppingCart(action);
-  // }
-
-  // // DELETAR O PRODUTO DO CARRINHO DE COMPRAS
-  // const deleteProduct = (product) => {
-  //     let newDataShoppingCart = dataShoppingCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
-  //     setDataShoppingCart(newDataShoppingCart);
-  // }
-
-  // // RECEBE OS DADOS DO PRODUTO PARA ADICIONAR NO CARRINHO DE COMPRAS
-  // function receiveProductsToShopCart(data){
-  //   let checkDuplicate = productsShoppingCart.some(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto));
-    
-  //   if(checkDuplicate === true){
-  //       productsShoppingCart
-  //         .filter(item => (item.product.marca, item.product.produto) === (data.product.marca, data.product.produto))
-  //         .map(item => item.quantity = data.quantity)
-  //   }else{
-  //       setProductsShoppingCart(previous => [...previous, data]); 
-  //   }
-  // }
-  
   // // atualizar o preço total da compra
   useEffect(() => {
-
     if(productsShoppingCart.length !== 0){
       const reducer = (previousValue, currentValue) => previousValue + currentValue;
       const precoTotal = productsShoppingCart.map(element => element.product.preco * element.quantity).reduce(reducer);
@@ -57,8 +32,24 @@ function App() {
 
   }, [productsShoppingCart]);
 
-
   console.log('renderizando na pasta app.js')
+
+
+  const useOutsideClick = (ref) => {
+    useEffect(() => {
+      const handleClickOutside = event => {
+        if(ref.current && !ref.current.contains(event.target) && ref.current.classList.contains("visible")){
+          setVisibilityShopCart("hidden")
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+
+      return() => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      };
+    }, [ref]);
+  } 
 
   return (
     <div className="App">
@@ -68,7 +59,7 @@ function App() {
               <nav className="menu-hamburger">
 
                 <input id="menu-hamburguer-button" type="checkbox" />
-                <label for="menu-hamburguer-button">
+                <label for="menu-hamburguer-button" >
                   <div className="menu">
                       <span className="hamburguer"></span>
                   </div>
@@ -110,8 +101,6 @@ function App() {
                           element={ 
                             <Produto 
                               data={product} 
-                              // receiveData={receiveProductsToShopCart} 
-                              // onShowCartShop={changeVisibilityCart}
                             />}
                             />
                       ))}
@@ -122,8 +111,10 @@ function App() {
             </Router>
 
             <ShopCart 
+              onHandleClickOutside={useOutsideClick}
               onShowComponent={visibilityShopCart} 
               onHideComponent={() => setVisibilityShopCart('hidden')}
+              onAddProductsShopCart={productsShoppingCart}
               priceData={precoCompra}
             />
 

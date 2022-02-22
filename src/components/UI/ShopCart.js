@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef} from 'react';
 
 import './ShopCart.css'
 
@@ -7,15 +7,28 @@ import { Context } from '../../Context';
 
 const ShopCart = (props) => {
 
-    const { productsShoppingCart, setProductsShoppingCart } = useContext(Context);
+    const dataProductsShopCart = props.onAddProductsShopCart;
+    const shopCartRef = useRef(null);
 
-     const deleteProduct = (product) => {
-        let newDataShoppingCart = productsShoppingCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
+    props.onHandleClickOutside(shopCartRef)
+
+    console.log(dataProductsShopCart);
+
+    const { setProductsShoppingCart } = useContext(Context);
+
+    const deleteProduct = (product) => {
+        let newDataShoppingCart = dataProductsShopCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
         setProductsShoppingCart(newDataShoppingCart);
     }
 
+    useEffect(() => {
+        console.log("estou mudando no shopping cart")
+        console.log(dataProductsShopCart)
+    }, [props.onAddProductsShopCart])
+
+
     return(
-        <main className={`container-shopping-cart ${props.onShowComponent}`}>
+        <main className={`container-shopping-cart ${props.onShowComponent}`} ref={shopCartRef}>
             <section className="container-shopping-cart-details">
               <h2 className="title-container-cart">suas compras</h2>
 
@@ -25,7 +38,7 @@ const ShopCart = (props) => {
             </section>
 
             <section className="container-compras">
-                {productsShoppingCart.map(item => (
+                {dataProductsShopCart.map(item => (
                     <MiniCard 
                         data={item}
                         onDeleteProduct={deleteProduct}/>

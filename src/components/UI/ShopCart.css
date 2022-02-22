@@ -11,7 +11,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     z-index: 1;
+
+    padding: 1rem;
 }
 
 .container-shopping-cart.visible{
@@ -96,27 +99,26 @@
 .container-compras{
     display: block;
     width: 90%;
-    max-height: 50%;
-    overflow-y: scroll;
+    max-height: 60%;
     height: auto;
+    overflow-y: auto;
     flex-direction: column;
-
-    align-items: center;
+    background-color: red;
 }
 
 .subtotal-value{
-    width: 90%;
     font-size: 1.5rem;
     text-transform: uppercase;
     font-family: 'Merriweather Sans', sans-serif;
     color: rgba(255,255,255, .6);
     text-align: center;
-    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .subtotal-value span{
     color: white;
-    letter-spacing: 2px;
+    padding-left: .5rem;
 }
 
 .btn-finish{
@@ -125,11 +127,23 @@
 
     background-color: orange;
 
-    position: absolute;
-    bottom: 5%;
-
     border-radius: 3px;
     font-size: 1.8rem;
 
     cursor: pointer;
+}
+
+@media (max-width: 600px){
+    .container-shopping-cart{
+        width: 70%;
+        right: -70%;
+    }
+
+    .container-shopping-cart.hidden{
+        right: -70%;
+    }
+
+    .title-container-cart{
+        font-size: 1.2rem;
+    }
 }
