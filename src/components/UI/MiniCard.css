@@ -1,14 +1,15 @@
 .container-compra{
     width: 100%;
+    height: auto;
+    min-height: 50%;
 
     display: flex;
     justify-content: space-between;
 
     padding: .5rem;
 
-    border-radius: 3px;
     margin-bottom: 1rem;
-    border-bottom: 0.1px white solid;
+    border-bottom: .1px rgba(255,255,255, .6) solid;
 }
 
 .container-compra:last-child{
@@ -20,7 +21,7 @@
     height: fit-content;
     width: 35%;
     border-radius: 2px;
-    box-shadow: 2px 2px 5px orange;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, .8);
 }
 
 .container-compra img{
@@ -46,6 +47,15 @@
     letter-spacing: 1px;
 }
 
+.name-product:after {
+    content: '';
+    display: block;
+    width: 80px;
+    margin-top: 5px;
+    height: 3px;
+    background: rgba(226, 142, 45, 0.5);
+}
+
 .container-compra-details label{
     color: rgba(255,255,255, .6);
     font-weight: 800;
@@ -54,20 +64,26 @@
     padding-bottom: .4rem;
 }
 
-.container-compra-details label span{
-    color: white;
-    font-weight: 400;
+.container-compra-details .value-product{
+    margin: .5rem 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-compra-details label{
+    color: rgba(255,255,255, .6);
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: .4rem;
 }
 
 .container-compra-details .value-product{
-    margin: 1.5rem 0;
+    font-size: 1.2em;
+    color: rgba(255,255,255, 1)
 }
 
-.container-compra-details .value-product span{
-    color: white;
-    font-weight: 700;
-    font-size: 1.2rem;
-    font-family: 'Merriweather Sans', sans-serif;
+.container-compra-details .quantity-product span{
+    color:rgba(255,255,255, 1);
 }
 
 .btn-remove-shop{
@@ -78,6 +94,9 @@
 
 .btn-remove-shop span{
     color: white;
+}
+.btn-remove-shop span:hover{
+    color: rgba(226, 142, 45, .6);
 }
 
 @media (max-width: 600px){

@@ -1,7 +1,6 @@
 import React, {useState, useRef, useContext} from "react";
 
 import { Context } from '../../Context';
-
 import "./Produto.css"
 
 const Produto = (props) => {
@@ -24,9 +23,7 @@ const Produto = (props) => {
     }
 
     const addProductShopCart = () => {
-
         let detailsShopping = { product: props.data, quantity: 1}
-
         addProductToDataList(detailsShopping)
         setVisibilityShopCart('visible')
     }

@@ -20,7 +20,7 @@ function App() {
 
   const [precoCompra, setPrecoCompra] = useState(0);
 
-  // // atualizar o preço total da compra
+  // atualizar o preço total da compra
   useEffect(() => {
     if(productsShoppingCart.length !== 0){
       const reducer = (previousValue, currentValue) => previousValue + currentValue;
@@ -29,22 +29,17 @@ function App() {
     }else{
       setPrecoCompra(0);
     }
+  }, [productsShoppingCart, visibilityShopCart]);
 
-  }, [productsShoppingCart]);
-
-  console.log('renderizando na pasta app.js')
-
-
+  // lidando com o clique fora do carrinho de compras
   const useOutsideClick = (ref) => {
     useEffect(() => {
       const handleClickOutside = event => {
         if(ref.current && !ref.current.contains(event.target) && ref.current.classList.contains("visible")){
-          setVisibilityShopCart("hidden")
+            setVisibilityShopCart("hidden")
         }
       }
-
       document.addEventListener("mousedown", handleClickOutside);
-
       return() => {
         document.removeEventListener("mousedown", handleClickOutside)
       };
@@ -105,16 +100,14 @@ function App() {
                             />
                       ))}
                     
-                  </Routes>
-                
+                  </Routes>          
               </div>
             </Router>
 
             <ShopCart 
               onHandleClickOutside={useOutsideClick}
-              onShowComponent={visibilityShopCart} 
+              onHandleVisibilityComponent={visibilityShopCart} 
               onHideComponent={() => setVisibilityShopCart('hidden')}
-              onAddProductsShopCart={productsShoppingCart}
               priceData={precoCompra}
             />
 

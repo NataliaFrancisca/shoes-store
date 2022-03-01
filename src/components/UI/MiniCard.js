@@ -15,7 +15,7 @@ const MiniCard = (props) => {
                 <h3 className="name-product">{produto}</h3>
 
                 <label className="value-product"><span>R${preco}</span></label>
-                <label>Quantidade: <span>{props.data.quantity}</span> </label>
+                <label className="quantity-product">Quantidade: <span>{props.data.quantity}</span> </label>
             </div>
 
             <button className="btn-remove-shop" onClick={() => props.onDeleteProduct(props.data.product)}>

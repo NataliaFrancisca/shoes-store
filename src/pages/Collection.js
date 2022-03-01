@@ -17,9 +17,7 @@ const Collection = () => {
     return(
         <main className="container-collection">
             <h1 className="title-component">Collection</h1>
-            
             <div className="container-collection-products">
-
                 {dataProducts.map((product, index) => (
                     <Card 
                         key={index}
