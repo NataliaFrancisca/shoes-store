@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef} from 'react';
+import React, { useContext, useRef} from 'react';
 
 import './ShopCart.css'
 
@@ -7,28 +7,19 @@ import { Context } from '../../Context';
 
 const ShopCart = (props) => {
 
-    const dataProductsShopCart = props.onAddProductsShopCart;
+    const { setProductsShoppingCart, productsShoppingCart} = useContext(Context);
     const shopCartRef = useRef(null);
+    const price = props.priceData.toLocaleString('pt-br', {minimumFractionDigits: 2});
 
     props.onHandleClickOutside(shopCartRef)
 
-    console.log(dataProductsShopCart);
-
-    const { setProductsShoppingCart } = useContext(Context);
-
     const deleteProduct = (product) => {
-        let newDataShoppingCart = dataProductsShopCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
+        let newDataShoppingCart = productsShoppingCart.filter(element => (element.product.marca, element.product.produto) !== (product.marca, product.produto));
         setProductsShoppingCart(newDataShoppingCart);
     }
 
-    useEffect(() => {
-        console.log("estou mudando no shopping cart")
-        console.log(dataProductsShopCart)
-    }, [props.onAddProductsShopCart])
-
-
     return(
-        <main className={`container-shopping-cart ${props.onShowComponent}`} ref={shopCartRef}>
+        <main className={`container-shopping-cart ${props.onHandleVisibilityComponent}`} ref={shopCartRef}>
             <section className="container-shopping-cart-details">
               <h2 className="title-container-cart">suas compras</h2>
 
@@ -38,14 +29,15 @@ const ShopCart = (props) => {
             </section>
 
             <section className="container-compras">
-                {dataProductsShopCart.map(item => (
+                {productsShoppingCart.map(item => (
                     <MiniCard 
                         data={item}
                         onDeleteProduct={deleteProduct}/>
                 ))}
             </section>
+            
 
-            <label className="subtotal-value">Subtotal: <span>R$ {props.priceData}</span></label>
+            <label className="subtotal-value">Subtotal: <span>R$ {price}</span></label>
             <button className="btn-finish">Finish</button>
         </main>
     )
