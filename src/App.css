@@ -135,9 +135,6 @@ input:checked ~ .menu-items{
     header{
         height: 20%;
     }
-    .container-compras{
-        max-height: 45%;
-    }
 
     .btn-show-shopping-cart{
         margin-left: 0rem;

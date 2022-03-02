@@ -104,7 +104,7 @@ main{
 }
 
 @media(max-width: 600px){
-    main{
+    .first-screen{
         flex-direction: column;
         justify-content: center;
         align-items: center;

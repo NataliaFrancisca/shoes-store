@@ -1,6 +1,6 @@
 .container-shopping-cart{
     width: 400px;
-    height: 100%;
+    height: 100vh;
     background-color: rgb(20,20,20);
     position: fixed;
     right: -400px;
@@ -11,7 +11,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* justify-content: space-between; */
     z-index: 1;
 
     padding: 1rem;
@@ -75,8 +74,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    transition: all ease-in .3s;
 }
 
 .title-container-cart{
@@ -96,14 +93,24 @@
 }
 
 /* DETALHES DO PRODUTO QUE FOI ADICIONADO NO CARRINHO */
+
 .container-compras{
     display: block;
+
     width: 90%;
-    max-height: 50%;
+    max-height: 60%;
     height: auto;
+
     overflow-y: auto;
+    margin: 1rem 0;
+}
+
+.container-shopping-cart-final-details{
+    display: flex;
+
     flex-direction: column;
-    margin-top: 5vh;
+    position: fixed;
+    bottom: 2rem;
 }
 
 .subtotal-value{
@@ -112,23 +119,16 @@
     font-family: 'Merriweather Sans', sans-serif;
     color: rgba(255,255,255, .6);
     text-align: center;
-    display: flex;
-    justify-self: flex-end;
-    flex-wrap: wrap;
-
-    margin-top: 1rem;
-
-    position: fixed;
-    bottom: 5rem;
+    margin: 1rem 0;
 }
 
 .subtotal-value span{
-    color: white;
+    color: rgba(250,250,250,1);
     padding-left: .5rem;
 }
 
 .btn-finish{
-    width: 50%;
+    width: 100%;
     height: 3rem;
 
     background-color: orange;
@@ -137,10 +137,11 @@
     font-size: 1.8rem;
 
     cursor: pointer;
-    position: absolute;
-    bottom: 1rem;
-
     color: rgba(250,250,250,1)
+}
+
+.btn-finish:hover{
+    box-shadow: 1px 1px 8px rgba(255, 255, 255, .8);
 }
 
 @media (max-width: 600px){
@@ -156,4 +157,5 @@
     .title-container-cart{
         font-size: 1.2rem;
     }
+
 }
