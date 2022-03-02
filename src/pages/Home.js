@@ -19,7 +19,7 @@ const Home = () => {
         <div classNameName="component-home">
 
             {/* PRIMEIRA TELA */}
-            <main>
+            <main className="first-screen">
                 <section className="first-column">
                     <h1>Any variation that fits your imagination</h1>
                 </section>
