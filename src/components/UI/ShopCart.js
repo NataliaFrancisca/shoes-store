@@ -18,6 +18,10 @@ const ShopCart = (props) => {
         setProductsShoppingCart(newDataShoppingCart);
     }
 
+    const finishShop = () => {
+        alert("Thanks!!! sua compra já vai ser processada")
+    }
+
     return(
         <main className={`container-shopping-cart ${props.onHandleVisibilityComponent}`} ref={shopCartRef}>
             <section className="container-shopping-cart-details">
@@ -29,16 +33,18 @@ const ShopCart = (props) => {
             </section>
 
             <section className="container-compras">
-                {productsShoppingCart.map(item => (
+                {productsShoppingCart.map((item, index) => (
                     <MiniCard 
+                        key={index}
                         data={item}
                         onDeleteProduct={deleteProduct}/>
                 ))}
             </section>
-            
 
-            <label className="subtotal-value">Subtotal: <span>R$ {price}</span></label>
-            <button className="btn-finish">Finish</button>
+            <section className='container-shopping-cart-final-details'>
+                <label className="subtotal-value">Subtotal: <span>R$ {price}</span></label>
+                <button className="btn-finish" onClick={() => finishShop()}>Finish</button>
+            </section>
         </main>
     )
 }
