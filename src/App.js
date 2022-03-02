@@ -62,7 +62,7 @@ function App() {
                 
                 <ul className="menu-items">
                   <li>
-                    <NavLink to="/" exact>Converse</NavLink>
+                    <NavLink to="/" exact>Store</NavLink>
                   </li>
 
                   <li>
@@ -91,10 +91,11 @@ function App() {
                     <Route path="/contact" element={<Contact />} />
                     
                     {/* passando pelos dados e pegando a url do dado */}
-                      {dataProducts.map(product => (
+                      {dataProducts.map((product, index) => (
                         <Route path={`produto/${product.url}`} 
                           element={ 
                             <Produto 
+                              key={index}
                               data={product} 
                             />}
                             />
